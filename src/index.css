@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+/* Background */
+.portfolio {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4f46e5, #9333ea, #ec4899);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Header */
+.portfolio-header {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.portfolio-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.portfolio-header p {
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+.download-btn {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #4f46e5;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: none;
+}
+
+.download-btn:hover {
+  background: #f3f4f6;
+}
+
+/* Sections */
+.portfolio-section {
+  max-width: 900px;
+  margin-top: 4rem;
+  width: 100%;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* About */
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.skill-card {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+}
+
+/* Experience */
+.experience-card ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.experience-card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
