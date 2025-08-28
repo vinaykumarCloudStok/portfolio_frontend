@@ -46,7 +46,8 @@ export default function Home() {
             "TypeScript",
             "JavaScript",
             "CSS3",
-            "HTML5",
+            "HTML",
+            "Context",
             "Redux",
             "TailwindCSS",
             "REST APIs",
@@ -88,21 +89,31 @@ export default function Home() {
             </p>
           </div>
           <div className="project-card">
-            <h3>Aviator Crash Game</h3>
+            <h3>IARI Farming App</h3>
             <p>
-              Real-time betting game with plane animation & cashout feature.
+              Crop details and guidance for farmers; clean information architecture and offline‑friendly UX (if
+              applicable).
             </p>
           </div>
           <div className="project-card">
-            <h3>Aviator 3D Game</h3>
+            <h3>Games Admin Web App </h3>
             <p>
-              3D crash game with smooth plane animations and betting interface.
+              • Admin panel for users, wallets, webhook logs, and game configurations.
+              • Advanced filters, paginated tables, and role‑based access.
             </p>
           </div>
           <div className="project-card">
-            <h3>JetX & AviatriX</h3>
+            <h3>Cloudstok Accounts (Invoices) Web App </h3>
             <p>
-              Crash games with advanced betting logic & UI/UX improvements.
+              • Create/update/delete and print invoices; integrated PDF export/print flows.
+              • Form validation and error handling for reliable finance operations.
+            </p>
+          </div>
+          <div className="project-card">
+            <h3>Doctor Appointment App</h3>
+            <p>
+              • Appointment scheduling, reminders, and video consultations with doctors.
+              • Streamlined booking flow and calendar integration; handled edge cases & retries.
             </p>
           </div>
         </div>
