@@ -54,7 +54,7 @@
 
 /* Sections */
 .portfolio-section {
-  max-width: 900px;
+  max-width: 1200px;
   margin-top: 4rem;
   width: 100%;
   padding: 2rem;
@@ -122,9 +122,23 @@
   background: rgba(255, 255, 255, 0.2);
   padding: 1.5rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   transition: transform 0.2s ease;
 }
 
 .project-card:hover {
   transform: scale(1.05);
+}
+
+.graph-img{
+  width: 150px;
+  margin-top: 4px;
+  border-radius: 4px;
+}
+.flex{
+  display: flex;
+  /* align-items: center; */
+  gap: 4px;
 }

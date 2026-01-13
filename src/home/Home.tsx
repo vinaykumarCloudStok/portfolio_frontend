@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Download } from "lucide-react";
-import resume from '../assets/newresumeupdate.pdf'
-
+import resume from '../assets/vinayresumeLatest.pdf'
+import graph from '../assets/grp.png'
 export default function Home() {
   const [downloading, setDownloading] = useState(false);
 
@@ -30,7 +30,7 @@ export default function Home() {
       <section className="portfolio-section about">
         <h2>About Me</h2>
         <p>
-          Frontend Developer with <strong>3.6 years</strong> of experience
+          Frontend Developer with <strong>4 years</strong> of experience
           building scalable, responsive, and user-friendly web applications.
           Skilled in <strong>React.js, TypeScript, CSS, JavaScript</strong> and
           delivering high-quality solutions aligned with business objectives.
@@ -45,7 +45,9 @@ export default function Home() {
             "React.js",
             "TypeScript",
             "JavaScript",
+            "CSS",
             "CSS3",
+            "Socket",
             "HTML",
             "Context",
             "Redux",
@@ -96,25 +98,40 @@ export default function Home() {
             </p>
           </div>
           <div className="project-card">
+            <h3>Games</h3>
+            <p>
+              Built real-time crash games using React.js, Socket.io, and APIs with live game updates,
+              cashout logic, responsive UI, and centralized state management using React Context.
+            </p>
+
+          </div>
+          <div className="project-card">
             <h3>Games Admin Web App </h3>
             <p>
-              • Admin panel for users, wallets, webhook logs, and game configurations.
-              • Advanced filters, paginated tables, and role‑based access.
+              Admin panel for users, wallets, webhook logs, and game configurations,
+              Advanced filters, paginated tables, and role‑based access.
             </p>
           </div>
           <div className="project-card">
             <h3>Cloudstok Accounts (Invoices) Web App </h3>
             <p>
-              • Create/update/delete and print invoices; integrated PDF export/print flows.
-              • Form validation and error handling for reliable finance operations.
+              Create/update/delete and print invoices; integrated PDF export/print flows,
+              Form validation and error handling for reliable finance operations.
             </p>
           </div>
           <div className="project-card">
             <h3>Doctor Appointment App</h3>
             <p>
-              • Appointment scheduling, reminders, and video consultations with doctors.
-              • Streamlined booking flow and calendar integration; handled edge cases & retries.
+              Appointment scheduling, reminders, and video consultations with doctors,
+              Streamlined booking flow and calendar integration; handled edge cases & retries.
             </p>
+          </div>
+          <div className="project-card">
+            <h3>Trading App</h3>
+            <div className="flex">
+              <img src={graph} alt="" className="graph-img" />
+              <p>Real-time cricket match data including live scores, odds</p>
+            </div>
           </div>
         </div>
       </section>
