@@ -1,140 +1,164 @@
-import { useState } from "react";
+import { FC } from "react";
+import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import resume from '../assets/vinayresumeLatest.pdf'
-import graph from '../assets/grp.png'
-export default function Home() {
-  const [downloading, setDownloading] = useState(false);
+import portfolioData from "../data/portfolioData";
+import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
+import ResumePreview from "../components/ResumePreview";
 
-  const handleDownload = () => {
-    setDownloading(true);
-    const link = document.createElement("a");
-    link.href = resume;
-    link.download = "Vinay_Kumar_Resume.pdf";
-    link.click();
-    setDownloading(false);
-  };
+import BlogSection from "../components/BlogSection";
+
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const stagger = {
+  visible: {
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+};
+
+const Home: FC = () => {
+  const { personal, about, skills, experience, projects } = portfolioData;
+const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+useEffect(() => {
+  document.body.className = theme;
+}, [theme]);
 
   return (
     <div className="portfolio">
       {/* Header */}
-      <header className="portfolio-header">
-        <h1>Vinay Kumar</h1>
-        <p>Frontend Developer (React / TypeScript)</p>
-        <button onClick={handleDownload} className="download-btn">
-          <Download size={18} />
-          {downloading ? "Downloading..." : "Download Resume"}
-        </button>
-      </header>
+      <motion.header
+        className="portfolio-header"
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+      >
+        <h1>{personal.name}</h1>
+        <p>{personal.title}</p>
 
-      {/* About Section */}
-      <section className="portfolio-section about">
+        <a href={personal.resume} download>
+          <button className="download-btn">
+            <Download size={18} />
+            Download Resume
+          </button>
+        </a>
+        <button
+  className="download-btn"
+  style={{ marginLeft: "0.5rem" }}
+  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+>
+  {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+</button>
+
+      </motion.header>
+
+      {/* About */}
+      <motion.section
+        className="portfolio-section about"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
         <h2>About Me</h2>
-        <p>
-          Frontend Developer with <strong>4 years</strong> of experience
-          building scalable, responsive, and user-friendly web applications.
-          Skilled in <strong>React.js, TypeScript, CSS, JavaScript</strong> and
-          delivering high-quality solutions aligned with business objectives.
-        </p>
-      </section>
+        <p>{about.description}</p>
+      </motion.section>
 
-      {/* Skills Section */}
-      <section className="portfolio-section skills">
+      {/* Skills */}
+      <motion.section
+        className="portfolio-section skills"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={stagger}
+      >
         <h2>Skills</h2>
+
         <div className="skills-grid">
-          {[
-            "React.js",
-            "TypeScript",
-            "JavaScript",
-            "CSS",
-            "CSS3",
-            "Socket",
-            "HTML",
-            "Context",
-            "Redux",
-            "TailwindCSS",
-            "REST APIs",
-          ].map((skill, idx) => (
-            <div key={idx} className="skill-card">
+          {skills.map((skill) => (
+            <motion.div
+              key={skill}
+              className="skill-card"
+              variants={fadeUp}
+              whileHover={{ scale: 1.05 }}
+            >
               {skill}
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      {/* Experience Section */}
-      <section className="portfolio-section experience">
+      {/* Experience */}
+      <motion.section
+        className="portfolio-section experience"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
         <h2>Experience</h2>
-        <div className="experience-card">
-          <h3>Frontend Developer</h3>
-          <p className="time">2021 – Present</p>
-          <ul>
-            <li>
-              Developed interactive UI using React, TypeScript, and modern CSS.
-            </li>
-            <li>Collaborated with backend teams to integrate REST APIs.</li>
-            <li>Implemented reusable components and optimized performance.</li>
-            <li>
-              Led frontend development for multiple gaming and sports web apps.
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      {/* Projects Section */}
-      <section className="portfolio-section projects">
+        {experience.map((exp) => (
+          <div key={exp.role} className="experience-card">
+            <h3>{exp.role}</h3>
+            <p className="time">{exp.duration}</p>
+
+            <ul>
+              {exp.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </motion.section>
+
+      {/* Projects */}
+      <motion.section
+        className="portfolio-section projects"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={stagger}
+      >
         <h2>Projects</h2>
-        <div className="projects-grid">
-          <div className="project-card">
-            <h3>Cricfast Sports App</h3>
-            <p>
-              Live cricket scores, commentary, and player stats (like Cricbuzz).
-            </p>
-          </div>
-          <div className="project-card">
-            <h3>IARI Farming App</h3>
-            <p>
-              Crop details and guidance for farmers; clean information architecture and offline‑friendly UX (if
-              applicable).
-            </p>
-          </div>
-          <div className="project-card">
-            <h3>Games</h3>
-            <p>
-              Built real-time crash games using React.js, Socket.io, and APIs with live game updates,
-              cashout logic, responsive UI, and centralized state management using React Context.
-            </p>
 
-          </div>
-          <div className="project-card">
-            <h3>Games Admin Web App </h3>
-            <p>
-              Admin panel for users, wallets, webhook logs, and game configurations,
-              Advanced filters, paginated tables, and role‑based access.
-            </p>
-          </div>
-          <div className="project-card">
-            <h3>Cloudstok Accounts (Invoices) Web App </h3>
-            <p>
-              Create/update/delete and print invoices; integrated PDF export/print flows,
-              Form validation and error handling for reliable finance operations.
-            </p>
-          </div>
-          <div className="project-card">
-            <h3>Doctor Appointment App</h3>
-            <p>
-              Appointment scheduling, reminders, and video consultations with doctors,
-              Streamlined booking flow and calendar integration; handled edge cases & retries.
-            </p>
-          </div>
-          <div className="project-card">
-            <h3>Trading App</h3>
-            <div className="flex">
-              <img src={graph} alt="" className="graph-img" />
-              <p>Real-time cricket match data including live scores, odds</p>
-            </div>
-          </div>
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <motion.div
+              key={project.title}
+              className="project-card"
+              variants={fadeUp}
+              whileHover={{ scale: 1.05 }}
+            >
+              <h3>{project.title}</h3>
+
+              {project.image ? (
+                <div className="flex">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="graph-img"
+                  />
+                  <p>{project.description}</p>
+                </div>
+              ) : (
+                <p>{project.description}</p>
+              )}
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.section>
+        <ResumePreview />
+
+      <BlogSection />
     </div>
   );
-}
+};
+
+export default Home;
