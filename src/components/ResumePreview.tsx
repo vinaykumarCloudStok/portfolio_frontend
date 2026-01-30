@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import resume from '../assets/vinayresumeLatest.pdf'
+import resume from '../assets/vinaydevresume.pdf'
 const ResumePreview = () => {
   return (
     <motion.section

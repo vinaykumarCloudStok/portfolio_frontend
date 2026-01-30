@@ -1,4 +1,4 @@
-import resume from "../assets/vinayresumeLatest.pdf";
+import resume from "../assets/vinaydevresume.pdf";
 import graph from "../assets/grp.png";
 
 export interface Experience {
